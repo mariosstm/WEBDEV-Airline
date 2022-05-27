@@ -1,0 +1,89 @@
+@font-face {
+  font-family: Akshar;
+  src: url(https://fonts.google.com/specimen/Akshar#standard-styles);
+}
+
+.main-poster{
+  width: 100%;
+  height: 500px;
+}
+
+.img-container{
+  position: absolute;
+  width: 100%;
+  height: 500px;
+}
+
+.dest-banner{
+  object-fit: cover;
+  width:100%;
+  height: 500px;
+  border-bottom: solid #1392d6 5px;
+}
+
+.banner-title{
+  font-family: Akshar;
+  font-weight: 700;
+  font-size: 4rem;
+  color: whitesmoke;
+  z-index: 100;
+  position: relative;
+  width: 40%;
+  margin-left: 50px;
+  top: 50px;
+}
+
+.dest-container{
+  margin: 40px 0 100px 65px;
+}
+
+.dest-title{
+  font-family: Akshar;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-left: 15px;
+}
+
+.dest-flex{
+  display: flex;
+  margin-top: 50px;
+}
+
+.dest-item{
+  height: 160px;
+  width: 240px;
+  margin: 0 15px;  
+  transition: transform .5s ease;
+}
+
+.dest-item a{
+  display:inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.dest-img{
+  position: relative;
+  z-index: -1;
+  object-fit: cover;
+  width:100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: linear-gradient(to top, #21445e, #21445e);
+}
+
+.dest-item:hover{
+  transform: translate(0, -10px);
+}
+
+.dest-text{
+  bottom: 0;
+  font-family: Akshar;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: whitesmoke;
+  z-index: 1;
+  margin-top: -1.5em;
+  text-align: center;
+  text-shadow : 1px 1px black;
+}

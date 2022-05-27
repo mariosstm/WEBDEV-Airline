@@ -1,5 +1,5 @@
 .main-header{
-    background-color: #286bce;
+    background-color: #0087ca;
     color: whitesmoke;
     font-size: 120%;
     border: 0;
@@ -51,8 +51,27 @@ nav .navbar-nav{
 .nav-link{
     color: whitesmoke;
     position:relative;
+    transition: text-decoration 1s ease-out 100ms;
 }
+
+.nav-link:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .nav-link:hover:after{
+    transform: scaleX(1);
+  }
+
 .center-bg{
+    border-top: 2px solid #0087ca;
     background-image: url(../images/clouds.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -82,7 +101,7 @@ nav .navbar-nav{
 
 .form-container{
     color: whitesmoke;
-    background-color: #074aa7;
+    background-color: #0087ca;
     padding: 2em 5em;
     border-radius: 0px 0px 16px 16px;
 }
