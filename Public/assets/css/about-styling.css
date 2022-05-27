@@ -1,0 +1,82 @@
+body{
+    margin:0px;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+header{
+    width:100%;
+    height:10vw;
+    font-size:3vw;
+    font-weight:500;
+    padding-top: 1em;
+    text-align: center;
+
+    background-color:rgb(6, 122, 246);
+
+}
+.company-text{
+    margin-top:2.5vw;
+    margin-bottom: 2.5vw;
+    font-size:1.5vw;
+    font-weight: 400;
+    text-align:center;
+    
+}
+h1 p{
+    height:8vw;
+    font-size: 2.5vw;
+    font-weight: 500;
+    text-align:center;
+    padding-top: 1.0em;
+    margin-bottom: 1.5em;
+    background-color:rgb(6, 122, 246);
+}
+.Co-Founders{
+    font-size:1.5vw;
+    font-weight: 400;
+    text-align:center;
+    margin-bottom: 1.7em;
+}
+
+
+
+
+.row{
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+.row .column{
+    text-align:center;
+    flex:45.8%;
+    width:100%;
+    overflow: hidden;
+}
+
+.row .column img{
+    width:85%;
+    height:48vw;
+}
+
+
+.social .fa{
+    font-size: 2vw;
+    padding: 10px 15px;
+    border-radius: 10px;
+
+}
+.about-Info{
+    font-size:1.2vw;
+    font-weight:400;
+}
+.AboutUs-Epiloge p{
+    font-size:1.2vw;
+    text-align:center;
+    margin-top:2em;
+    margin-bottom:2em;
+}

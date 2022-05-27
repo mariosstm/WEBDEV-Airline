@@ -1,0 +1,58 @@
+html{
+    font-size: 1.9vw;
+}
+body{
+    margin:0px;
+    width: 100%;
+    
+    
+}
+
+
+.nice-top{
+    
+    background-color:rgb(35, 141, 180);
+    padding-top:20vw;
+}
+
+
+
+.customer-form{
+    overflow: auto;
+    width:50%;
+    height:100%;
+    margin-left: 25%;
+    
+}
+
+fieldset{
+    
+    border-radius: 25px;
+}
+
+label{
+    font-size:1.2vw;
+    font-weight: 600;
+    border-bottom:1px solid black;
+}
+
+
+.CUST-INFOINP{
+    font-size: 1.2vw;
+    border:none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding:0%;
+    box-shadow: none!important;
+}
+.CUST-INFOINP:focus{
+    outline:none!important;
+    
+}
+input,input::placeholder{
+    font-size:large;
+}
+
+
+select,option{
+    font-size:0.8vw;
+}
