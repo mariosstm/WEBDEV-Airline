@@ -1,0 +1,45 @@
+.formInfoFlexContainer{
+  display:flex;
+}
+
+.flightInfoFlex{
+  width: 800px;
+  display:flex;
+  border: 2px solid black;
+  margin: 2em 18em;
+  padding: 0.5em 2em 0.5em 0;
+}
+
+.flightDetailsFlex{
+  display:flex;
+  font-size: 2rem;
+  margin-right: 2em;
+}
+
+.flightSelection{
+  width: 230px;
+  text-align:center;
+  padding-top: 22px;
+}
+
+.flightDepartContainer{
+  display:flex;
+  flex-direction: column;
+}
+
+.flightArriveContainer{
+  display:flex;
+  flex-direction: column;
+}
+
+.flightLocations{
+  text-align: center;
+}
+
+.flightPriceInfo{
+  padding: 22px 0 0 150px;
+  width:230px;
+  font-size: 2rem;
+  border-left: 1px dashed gray;
+  font-weight: bold;
+}

@@ -8,6 +8,24 @@ app.use(express.static('public'));
 app.engine('hbs', engine({ extname: 'hbs' }));
 app.set('view engine', 'hbs');
 
+let flights = [
+  {"id": 1, "airline": "Aegean", "depart": "Athens", "arrive": "Berlin", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "15", "price": "90$"},
+  {"id": 2, "airline": "Scoot", "depart": "Athens", "arrive": "Berlin", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "15", "price": "82$"},
+  {"id": 3, "airline": "RyanAir", "depart": "Athens", "arrive": "Milan", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "17", "price": "101$"},
+  {"id": 4, "airline": "Easyjet", "depart": "London", "arrive": "Berlin", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "17", "price": "63$"},
+  {"id": 5, "airline": "Wiz", "depart": "London", "arrive": "Milan", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "15", "price": "96$"},
+  {"id": 6, "airline": "RyanAir", "depart": "Berlin", "arrive": "Athens", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "27", "price": "82$"},
+  {"id": 7, "airline": "Aegean", "depart": "Berlin", "arrive": "Athens", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "27", "price": "80$"},
+  {"id": 8, "airline": "Easyjet", "depart": "Berlin", "arrive": "Athens", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "26", "price": "86$"},
+  {"id": 9, "airline": "Aegean", "depart": "London", "arrive": "Athens", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "27", "price": "94$"},
+];
+
+let renderFlights = function (req, res) {
+  //req.query
+  const filtFlights = flights.filter(flight => flight.depart === req.query.departure && flight.arrive === req.query.arrival && flight.date === req.query["depart-date"].slice(8))
+  return res.render('flights', {layout: 'main', formData: req.query, departFlights: filtFlights});
+}
+
 let renderHomePage = function (req, res) {
   res.render('home', {layout:'main'});
 }
@@ -50,6 +68,9 @@ router.route('/sign-up').get(renderSignUpPage);
 router.route('/about-us').get(renderAboutUs);
 router.route('/user-info-form').get(renderUserInfoForm);
 router.route('/profile').get(renderProfilePage);
+router.route('/flights').get(renderFlights);
 
 let port = process.env.PORT || '3000';
 const server = app.listen(port, () => { console.log("Περιμένω αιτήματα στο port " + port) });
+
+//http://localhost:3000/?departure=Athens&arrival=Kos&depart-date=2022-05-27&return-date=2022-05-31
