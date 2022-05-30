@@ -1,9 +1,11 @@
 <div class="formInfo">
   <div class="formInfoFlexContainer">
+    <img class="plane-icon" src="images/plane-icon.png">
     {{#formData}}
       <span class="flightLoc">{{departure}}</span>
       <span class="flightLoc">&nbsp;-&nbsp;</span>
       <span class="flightLoc">{{arrival}}</span>
+      <btn class="flightDate">{{depart-date}}</btn>
     {{/formData}}
   </div>
 </div>
@@ -27,8 +29,41 @@
         {{price}}
       </div>
     </div>
-    
   {{/each}}
 </div>
 <div>
+  {{#if returnFlights}}
+    <div class="formInfo">
+      <div class="formInfoFlexContainer">
+        <img class="plane-icon" src="images/plane-icon-rev.png">
+        {{#formData}}
+          <span class="flightLoc">{{arrival}}</span>
+          <span class="flightLoc">&nbsp;-&nbsp;</span>
+          <span class="flightLoc">{{departure}}</span>
+          <btn class="flightDate">{{return-date}}</btn>
+        {{/formData}}
+      </div>
+    </div>
+    {{#each returnFlights}}
+      <div class="flightInfoFlex">
+        <div class="flightDetailsFlex">
+          <div class="flightSelection">{{airline}}</div>
+          <div class="flightDepartContainer">
+            <span class="flightTime">{{dptTime}}</span>
+            <span class="flightLocations">{{dptAirport}}</span>
+          </div>
+          <div class="inBetweenContainer">
+            &nbsp;---&nbsp;
+          </div>
+          <div class="flightArriveContainer">
+            <span class="flightTime">{{arrTime}}</span>
+            <span class="flightLocations">{{arrAirport}}</span></div>
+        </div>
+        <div class="flightPriceInfo">
+          {{price}}
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
 </div>
+  

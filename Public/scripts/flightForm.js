@@ -1,8 +1,9 @@
 const oneWayBtn = document.querySelector("#oneway");
-const returnDate = document.querySelector("#returnDate");
 const swapBtn = document.querySelector(".swapLocBtn");
 
 oneWayBtn.addEventListener("click", function() {
+  const returnDate = document.querySelector("#returnDate");
+  
   if(oneWayBtn.checked == true) {
     returnDate.style.display = "none";
   }else {
@@ -11,6 +12,9 @@ oneWayBtn.addEventListener("click", function() {
 })
 
 swapBtn.addEventListener("click", function() {
-  console.log('helloo');
-  //why
+  const dptCity = document.querySelector("#departure").value;
+  const arrCity = document.querySelector("#arrival").value;
+  
+  document.querySelector("#departure").value = arrCity;
+  document.querySelector("#arrival").value = dptCity;
 })
