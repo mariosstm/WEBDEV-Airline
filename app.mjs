@@ -1,16 +1,20 @@
 import express from 'express';
 import {engine} from 'express-handlebars';
-import * as model  from './model/model_PG.js';
+import * as model  from './models/model_PG.js';
 import bodyParser from "body-parser";
 const app = express();
 const router = express.Router();
-const urlencodedParser=bodyParser.urlencoded({extended:false}); 
 
 app.use(express.static('public'));
 app.engine('hbs', engine({ extname: 'hbs' }));
 app.set('view engine', 'hbs');
 
 
+const urlencodedParser=express.urlencoded({extended:true}); 
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 let flights = [
   {"id": 1, "airline": "Aegean", "depart": "Athens", "arrive": "Berlin", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "15", "price": "90$"},
@@ -23,6 +27,7 @@ let flights = [
   {"id": 8, "airline": "Easyjet", "depart": "Berlin", "arrive": "Athens", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "26", "price": "86$"},
   {"id": 9, "airline": "Aegean", "depart": "London", "arrive": "Athens", "dptAirport": "ATH", "arrAirport": "BRL", "dptTime":"16:00", "arrTime":"20:00", "date": "27", "price": "94$"},
 ];
+
 
 let renderFlights = function (req, res) {
   //req.query
@@ -64,6 +69,7 @@ let renderProfilePage = function (req, res) {
 
 app.use(router);
 
+
 router.route('/').get(renderHomePage);
 router.route('/destinations').get(renderDest);
 router.route('/faq').get(renderFaq);
@@ -77,23 +83,27 @@ router.route('/flights').get(renderFlights);
 //INSERT USERS
 
 app.post("/sign-up",urlencodedParser,(req,res)=>{
-  res.render('sign-up',{qs:req.query});
   console.log("/sign-up", req.body);
   
   let ID=null;
-  let Fname=req.query.Fname;
-  let Mname=req.query.Mname;
-  let Lname=req.query.Lname;
-  let Email=req.query.Email;
-  let Cellphone=req.query.Cellphone;
-  let Username=Password=req.query.Username;
-  let Newsletter=req.query.Newsletter;
+  let Fname=req.body.Fname;
+  console.log(Fname);
+  let Mname=req.body.Mname;
+  let Lname=req.body.Lname;
+  let Email=req.body.Email;
+  let Cellphone=req.body.Cellphone;
+  let Username=req.body.Username;
+  let Password=req.body.Password;
+  let NewsLetter=req.body.NewsLetter;
 
-  model.insertUser(ID,Fname,Mname,Lname,Email,Cellphone,Username,Password,Newsletter,(err,row)=>{
+  model.insertUser(ID,Fname,Mname,Lname,Email,Cellphone,Username,Password,NewsLetter,(err,row)=>{
     if(err){
       console.log(err.message);
+      
     }
     else{
+      //ADD SESSION & COOKIES
+      /*
       req.sesssion.ID=row[0].ID;
       req.sesssion.Fname=row[0].Fname;
       req.sesssion.Mname=row[0].Mname;
@@ -102,11 +112,13 @@ app.post("/sign-up",urlencodedParser,(req,res)=>{
       req.sesssion.Cellphone=row[0].Cellphone;
       req.sesssion.Username=row[0].Username;
       req.session.Password=row[0].Password;
-      req.sesssion.Newsletter=row[0].Newsletter;
-      
-
+      req.sesssion.NewsLetter=row[0].NewsLetter;
+      //res.render('sign-up',{qs:req.query});
+      */
+      res.redirect("/");
     }
-    res.redirect("/");
+
+    
   });
 })
 

@@ -1,106 +1,106 @@
 <section class="text-center">
-  <form id="signUP-form" action="/sign-up" method="post"></form>
+  <form id="signUP-form" action="/sign-up" method="POST">
   <!-- Background image -->
-  <div class="p-5 bg-image " style="
-        background-size: 100% 100%;
-        background-image: url('images/clouds.jpg');
-        height: 25em;  "></div>
-  <!-- Background image -->
+    <div class="p-5 bg-image " style="
+          background-size: 100% 100%;
+          background-image: url('images/clouds.jpg');
+          height: 25em;  "></div>
+    <!-- Background image -->
 
-  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-        margin-top: -190px;
-        background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(90px);
-        
-        left:0em;
-        border-radius: 16px;
-        ">
-    <div class="card-body py-5 px-md-5">
-
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Sign up now</h2>
-          <form>
-            <!-- 2 column grid layout with text inputs for the first and last names -->
-            <div class="row">
-              <div class="col-md-4 mb-4">
-                <div class="form-outline">
-                  {{<input type="text" id="Fname" class="form-control" value=Fname/>}}
-                  <label class="form-label" for="Fname">First name</label>
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -190px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(90px);
+          
+          left:0em;
+          border-radius: 16px;
+          ">
+      <div class="card-body py-5 px-md-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+            
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-4 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="Fname" class="form-control" name="Fname" value="">
+                    <label class="form-label" for="Fname">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="Mname" class="form-control"  name="Mname" value="">
+                    <label class="form-label" for="Mname">Middle name</label>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="Lname" class="form-control"  name="Lname" value="">
+                    <label class="form-label" for="Lname">Last name</label>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-4 mb-4">
-                <div class="form-outline">
-                  {{<input type="text" id="Mname" class="form-control" value=qs.Mname />}}
-                  <label class="form-label" for="Mname">Middle name</label>
-                </div>
+
+              <!-- Email & Cellphone input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="Email" class="form-control"  name="Email" value="">
+                <label class="form-label" for="Email">Email address</label>
               </div>
-              <div class="col-md-4 mb-4">
-                <div class="form-outline">
-                  {{<input type="text" id="Lname" class="form-control" value=qs.Lname />}}
-                  <label class="form-label" for="Lname">Last name</label>
-                </div>
+              <div class="form-outline mb-4">
+                <input type="cellphone" id="Cellphone" class="form-control"  name="Cellphone" value="">
+                <label class="form-label" for="Cellphone">Cellphone </label>
               </div>
-            </div>
 
-            <!-- Email & Cellphone input -->
-            <div class="form-outline mb-4">
-              {{<input type="email" id="Email" class="form-control" value=qs.Email%>}}
-              <label class="form-label" for="Email">Email address</label>
-            </div>
-            <div class="form-outline mb-4">
-              {{<input type="cellphone" id="Cellphone" class="form-control" value=qs.Cellphone/>}}
-              <label class="form-label" for="Cellphone">Cellphone </label>
-            </div>
+              <!-- Username &Password input -->
+              <div class="form-outline mb-4">
+                <input type="username" id="Username" class="form-control"  name="Username" value="">
+                <label class="form-label" for="Username">Username</label>
+              </div>
 
-            <!-- Username &Password input -->
-            <div class="form-outline mb-4">
-          {{<input type="username" id="Username" class="form-control" value=qs.Username/>}}    
-          <label class="form-label" for="Username">Username</label>
-            </div>
+              <div class="form-outline mb-4">
+                <input type="password" id="Password" class="form-control"  name="Password" value="">
+                <label class="form-label" for="Password">Password</label>
+              </div>
 
-            <div class="form-outline mb-4">
-              {{<input type="password" id="Password" class="form-control" value=qs.Password/>}}
-              <label class="form-label" for="Password">Password</label>
-            </div>
-
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-              {{<input class="form-check-input me-2" type="checkbox" value=qs.Newsletter id="Newsletter"  style="float:left;position: relative; margin-right: 1em;" />}}
-              <label class="form-check-label" for="Newsletter">
-                Subscribe to our newsletter
-              </label>
-            </div>
-            <div>
-              <a href="/sign-in">Already have an Account?</a>
-            </div>
-            <div><p> <br></p></div>
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">
-              Sign up
-            </button>
-
-            <!-- Register buttons -->
-            <div class="text-center">
-              <p>or sign up with:</p>
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-facebook-f "></i>
+              <!-- Checkbox -->
+              <br>
+              <div class="form-check d-flex justify-content-center mb-4">
+                <input id="Newsletter" class="form-check-input me-2" type="checkbox" name="NewsLetter"   style="float:left;position: relative; margin-right: 1em;" checked>
+                <label class="form-check-label" for="NewsLetter">
+                  Subscribe to our newsletter
+                </label>
+              </div>
+              <div>
+                <a href="/sign-in">Already have an Account?</a>
+              </div>
+              <div><p> <br></p></div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Sign up
               </button>
 
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-              </button>
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>or sign up with:</p>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f "></i>
+                </button>
 
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-              </button>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
 
-            </div>
-          </form>
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+
+              </div>
+            
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </form>
 </section>
 
