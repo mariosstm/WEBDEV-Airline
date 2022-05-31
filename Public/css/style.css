@@ -220,6 +220,7 @@ nav .navbar-nav{
 .passengers-btn{
     height: 1.8em;
     width: 8em;
+    background-color: white;
 }
 
 #departDate, #passengers{
