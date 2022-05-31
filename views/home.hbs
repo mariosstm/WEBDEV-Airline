@@ -19,13 +19,37 @@
                         <label class="arr-dep" for="arrival">Προς</label>
                         <input type="text" name="arrival" id="arrival" placeholder="Thessaloniki">
                     </div>
-                    <div class="flex-item">
+                    <div id="departDate" class="flex-item">
                         <label class="arr-dep" for="depart-date">Αναχώρηση</label>
                         <input type="date" name="depart-date" id="depart-date">
                     </div> 
                     <div id = "returnDate" class="flex-item">
                         <label class="arr-dep" for="return-date">Επιστροφή</label>
                         <input type="date" name="return-date" id="return-date">
+                    </div>
+                    <div id = "passengers" class = "flex-item">
+                        <label class="arr-dep" for="return-date">Επιβάτες</label>
+                        <input type="button" class="passengers-btn" name="passengers" value="1 Επιβάτης">
+                        <div class="psngr-dropdown">
+                            <span class="point"></span>
+                            <div class="psngr-box">
+                                <h3>Ενήλικες</h3>
+                                <div class="flex-container">
+                                    <btn class="psngr-number-btn" id="min0">-</btn>
+                                    <input type="text" class="psngr-number" id="num0" value=1>
+                                    <btn class="psngr-number-btn" id="plus0">+</btn>
+                                </div>
+                                <h3>Παιδιά</h3>
+                                <div class="flex-container">
+                                    <btn class="psngr-number-btn" id="min1">-</btn>
+                                    <input type="text" class="psngr-number" id="num1" value=0>
+                                    <btn class="psngr-number-btn" id="plus1">+</btn>
+                                </div>
+                                <div class="psngr-bot">
+                                    <btn class="psngr-ok">ΟΚ</btn>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-checkbox">

@@ -7,7 +7,6 @@
 
 .alt-header{
     background-color: whitesmoke;
-    color: #0087ca;
     font-size: 120%;
     border-bottom: 2px #00a8fc8e solid;
     position: sticky;
@@ -19,8 +18,23 @@
     
 }
 
-.top-header h1{
+.logo, .logo:hover{   
+    color: whitesmoke;
+    text-decoration: none;
     font-size:2em;
+    font-weight: 500;
+    display: inline;
+    position: relative;
+    left: 1em;
+    top: 0.8em;
+}
+
+
+.alt-logo, .alt-logo:hover{   
+    color: #0087ca;
+    text-decoration: none;
+    font-size:2em;
+    font-weight: 500;
     display: inline;
     position: relative;
     left: 1em;
@@ -95,7 +109,6 @@ nav .navbar-nav{
     top: 6em;
     left: 20%;
     width: 60%;
-    
 }
 
 .flex-container{
@@ -113,7 +126,10 @@ nav .navbar-nav{
     background-color: #0087ca;
     padding: 2em 5em;
     border-radius: 0px 0px 16px 16px;
+    position: relative;
+    height: 70%;
 }
+
 @media screen and (max-width:795px) {
     .form-container{
         color: whitesmoke;
@@ -123,6 +139,8 @@ nav .navbar-nav{
     }
     
 }
+
+
 .arr-dep{
     display: block;
     font-size: 0.75rem;
@@ -148,17 +166,17 @@ nav .navbar-nav{
 
 .form-checkbox {
     margin: 0.5em 0 0 0.2em;
-   
 }
 
 .button-form{
+    display: inline-block;
     height: 3vw;
+    width: 150px;
     position:sticky;
     border-radius: 16px;
 }
 
 .search-flight{
-    float: right;
     height: 3em;
     width: 9em;
     line-height: 1rem;
@@ -168,6 +186,7 @@ nav .navbar-nav{
     border: 0;
     border-radius: 16px;
     right:9em;
+    z-index: -1;
 }
 
 .search-flight:hover{
@@ -180,8 +199,6 @@ nav .navbar-nav{
 }
 
 .swapLocBtn {
-    /*border: 1px solid orange;
-    border-radius: 8px;*/
     border:none;
     background-color: #0087ca;
     width: 30px;
@@ -198,4 +215,86 @@ nav .navbar-nav{
     width: 75%;
     height: 75%;
     transform:scale(1.5);
+}
+
+.passengers-btn{
+    height: 1.8em;
+    width: 8em;
+}
+
+#departDate, #passengers{
+    margin-left: 3.7em;
+}
+
+.psngr-dropdown{
+    display: none;
+    position: absolute;
+}
+
+.psngr-box{
+    padding: 0.5em;
+    background-color: whitesmoke;
+    width: 15em;
+    height: 16em;
+    border-radius: 10px;
+    color:#0087ca;
+    font-size: 1em;
+}
+
+.psngr-number{
+    width: 2em;
+    border: none;
+}
+
+.psngr-box h3{
+    margin: 0.5em 0 0.5em 1em;
+    font-size: 1em;
+}
+
+.psngr-box .flex-container{
+    margin:0 0 2em 1em;
+}
+
+.psngr-number-btn{
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.8em;
+    border: 1px solid #c2c2c2;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2rem;
+    cursor: pointer;
+}
+
+#min0, #min1{
+    color: black;
+    background-color: lightgray; 
+    cursor: not-allowed;
+}
+
+.psngr-number{
+    font-size: 1.5em;
+    text-align: center;
+    color: #0087ca;
+}
+
+.psngr-bot{
+    border-top: 1px solid #c2c2c2;
+    text-align: right;
+    padding: 0.5em 0.5em 0.5em 0;
+}
+
+.psngr-ok{
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.point{
+    margin-left: 3.5em;
+    display: block;
+    width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 15px solid white;
 }
