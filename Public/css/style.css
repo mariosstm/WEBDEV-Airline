@@ -109,8 +109,6 @@ nav .navbar-nav{
     top: 6em;
     left: 20%;
     width: 60%;
-    height: 25vw;
-    width: 60vw;
 }
 
 .flex-container{
@@ -171,13 +169,14 @@ nav .navbar-nav{
 }
 
 .button-form{
+    display: inline-block;
     height: 3vw;
+    width: 150px;
     position:sticky;
     border-radius: 16px;
 }
 
 .search-flight{
-    float: right;
     height: 3em;
     width: 9em;
     line-height: 1rem;
@@ -187,6 +186,7 @@ nav .navbar-nav{
     border: 0;
     border-radius: 16px;
     right:9em;
+    z-index: -1;
 }
 
 .search-flight:hover{
@@ -199,8 +199,6 @@ nav .navbar-nav{
 }
 
 .swapLocBtn {
-    /*border: 1px solid orange;
-    border-radius: 8px;*/
     border:none;
     background-color: #0087ca;
     width: 30px;
@@ -266,6 +264,12 @@ nav .navbar-nav{
     text-align: center;
     line-height: 2rem;
     cursor: pointer;
+}
+
+#min0, #min1{
+    color: black;
+    background-color: lightgray; 
+    cursor: not-allowed;
 }
 
 .psngr-number{
