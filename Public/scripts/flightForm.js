@@ -59,6 +59,8 @@ const plus1 = document.querySelector("#plus1");
 
 const psngrOk = document.querySelector(".psngr-ok");
 
+const dropDown = document.querySelector(".psngr-dropdown");
+
 oneWayBtn.addEventListener("click", function() {
   const returnDate = document.querySelector("#returnDate");
   
@@ -87,5 +89,9 @@ plus1.addEventListener("click", onClickIncrement);
 
 psngrOk.addEventListener("click", function() {
   const dropDown = document.querySelector(".psngr-dropdown");
+  dropDown.style.display="none";
+})
+
+dropDown.addEventListener("blur", function() {
   dropDown.style.display="none";
 })
