@@ -1,5 +1,6 @@
 const oneWayBtn = document.querySelector("#oneway");
 const swapBtn = document.querySelector(".swapLocBtn");
+const psngrBtn = document.querySelector(".passengers-btn");
 
 oneWayBtn.addEventListener("click", function() {
   const returnDate = document.querySelector("#returnDate");
@@ -17,4 +18,10 @@ swapBtn.addEventListener("click", function() {
   
   document.querySelector("#departure").value = arrCity;
   document.querySelector("#arrival").value = dptCity;
+})
+
+psngrBtn.addEventListener("click", function() {
+  console.log('here')
+  const dropDown = document.querySelector(".psngr-dropdown");
+  dropDown.style.display="block";
 })

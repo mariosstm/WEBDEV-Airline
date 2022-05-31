@@ -9,7 +9,7 @@
     {{/formData}}
   </div>
 </div>
-<div>
+<div class="flightsContainer">
   {{#each departFlights}}
     <div class="flightInfoFlex">
       <div class="flightDetailsFlex">
@@ -31,7 +31,6 @@
     </div>
   {{/each}}
 </div>
-<div>
   {{#if returnFlights}}
     <div class="formInfo">
       <div class="formInfoFlexContainer">
@@ -44,6 +43,7 @@
         {{/formData}}
       </div>
     </div>
+    <div class="flightsContainer">
     {{#each returnFlights}}
       <div class="flightInfoFlex">
         <div class="flightDetailsFlex">
