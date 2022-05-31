@@ -2,7 +2,6 @@ import pg from "pg";
 import dotenv from "dotenv";
 
 dotenv.config();
-console.log(process.env)
 
  const pool = new pg.Pool({
      user: process.env.PGUSER,
@@ -45,7 +44,6 @@ async function insertUser (ID,Fname,Mname,Lname,Email,Cellphone,Username,Passwor
         await client.release();
         console.log(`user inserted`);
         callback(null, [{"ID":res.rows[0].ID,"Fname": Fname,"Mname":Mname,"Lname":Lname,"Email":Email,"Cellphone":Cellphone,"Username":Username,"Password":Password,"NewsLetter":NewsLetter }]); 
-        console.log("YEAH BOIIIIIIIIIIIIIIII")
     } 
     catch (err) {
         console.log(err);

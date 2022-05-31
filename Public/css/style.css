@@ -180,7 +180,7 @@ nav .navbar-nav{
     height: 3em;
     width: 9em;
     line-height: 1rem;
-    background-color: #00a8fcd6;
+    background-color: #E2076A;
     color: whitesmoke;
     font-weight: bold;
     border: 0;
@@ -190,7 +190,7 @@ nav .navbar-nav{
 }
 
 .search-flight:hover{
-    background-color: #117dd0;
+    background-color: #b93a73;
     transition:0.5s;
 }
 

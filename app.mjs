@@ -83,11 +83,8 @@ router.route('/flights').get(renderFlights);
 //INSERT USERS
 
 app.post("/sign-up",urlencodedParser,(req,res)=>{
-  console.log("/sign-up", req.body);
-  
   let ID=null;
   let Fname=req.body.Fname;
-  console.log(Fname);
   let Mname=req.body.Mname;
   let Lname=req.body.Lname;
   let Email=req.body.Email;
