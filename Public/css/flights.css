@@ -1,5 +1,21 @@
 .formInfoFlexContainer{
+  font-size: 2em;
+  color: whitesmoke;
   display:flex;
+  padding: 0.7em 0 0 9em;
+  background-color: #0087ca;
+  border: none;
+  height: 3em;
+}
+
+.plane-icon{
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
+}
+
+.flightDate{
+  margin-left: 10em;
 }
 
 .flightInfoFlex{

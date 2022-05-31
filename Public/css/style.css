@@ -5,6 +5,15 @@
     border: 0;
 }
 
+.alt-header{
+    background-color: whitesmoke;
+    color: #0087ca;
+    font-size: 120%;
+    border-bottom: 2px #00a8fc8e solid;
+    position: sticky;
+    top: 0;
+}
+
 .top-header{
     height: 6em;
     
