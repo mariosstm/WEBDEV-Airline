@@ -87,7 +87,6 @@ app.post("/sign-up",urlencodedParser,(req,res)=>{
   
   let ID=null;
   let Fname=req.body.Fname;
-  console.log(Fname);
   let Mname=req.body.Mname;
   let Lname=req.body.Lname;
   let Email=req.body.Email;
