@@ -82,7 +82,7 @@ router.route('/flights').get(renderFlights);
 
 //INSERT USERS
 
-app.post("/sign-up",urlencodedParser,(req,res)=>{
+app.post("/profile-page",urlencodedParser,(req,res)=>{
   let ID=null;
   let Fname=req.body.Fname;
   let Mname=req.body.Mname;
@@ -112,7 +112,7 @@ app.post("/sign-up",urlencodedParser,(req,res)=>{
       req.sesssion.NewsLetter=row[0].NewsLetter;
       //res.render('sign-up',{qs:req.query});
       */
-      res.redirect("/");
+      //res.redirect("/");
     }
 
     
