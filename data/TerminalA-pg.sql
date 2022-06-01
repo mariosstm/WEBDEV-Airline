@@ -25,21 +25,12 @@ SET default_table_access_method = heap;
 
 
 CREATE TABLE public."Admin" (
-    "adminID" text NOT NULL
+    "adminID" int NOT NULL
 );
 
 
 ALTER TABLE public."Admin" OWNER TO postgres;
 
-
-CREATE TABLE public."Aircraft" (
-    "aircraftID" text NOT NULL,
-    "aircraftType" text NOT NULL,
-    "totalSeats" text NOT NULL
-);
-
-
-ALTER TABLE public."Aircraft" OWNER TO postgres;
 
 
 
@@ -112,13 +103,9 @@ CREATE TABLE public."Finishes" (
 ALTER TABLE public."Finishes" OWNER TO postgres;
 
 
-CREATE TABLE public."Flies" (
-    "aircraftID" text,
-    "flightID" text
-);
 
 
-ALTER TABLE public."Flies" OWNER TO postgres;
+
 
 
 
@@ -200,7 +187,8 @@ CREATE TABLE public."User" (
     "Cellphone" text NOT NULL,
     "Email" text NOT NULL,
     "Username" text NOT NULL,
-    "Password" text NOT NULL
+    "Password" text NOT NULL,
+    "NewsLetter" BOOLEAN
 );
 
 
@@ -210,14 +198,6 @@ ALTER TABLE public."User" OWNER TO postgres;
 
 ALTER TABLE ONLY public."Admin"
     ADD CONSTRAINT "Admin_pkey" PRIMARY KEY ("adminID");
-
-
-
-
-ALTER TABLE ONLY public."Aircraft"
-    ADD CONSTRAINT "Aircraft_pkey" PRIMARY KEY ("aircraftID");
-
-
 
 
 ALTER TABLE ONLY public."Airport"
@@ -270,11 +250,6 @@ ALTER TABLE ONLY public."Customer"
 
 
 
-ALTER TABLE ONLY public."Flies"
-    ADD CONSTRAINT "aircraftID" FOREIGN KEY ("aircraftID") REFERENCES public."Aircraft"("aircraftID");
-
-
-
 ALTER TABLE ONLY public."Starts"
     ADD CONSTRAINT "airportID" FOREIGN KEY ("airportID") REFERENCES public."Airport"("airportID");
 
@@ -309,11 +284,6 @@ ALTER TABLE ONLY public."Consists"
 
 
 
-ALTER TABLE ONLY public."Flies"
-    ADD CONSTRAINT "flightID" FOREIGN KEY ("flightID") REFERENCES public."FlightLeg"("flightID");
-
-
-
 
 ALTER TABLE ONLY public."Starts"
     ADD CONSTRAINT "flightID" FOREIGN KEY ("flightID") REFERENCES public."FlightLeg"("flightID");
@@ -344,6 +314,17 @@ ALTER TABLE ONLY public."Anent"
 
 ALTER TABLE ONLY public."Relates"
     ADD CONSTRAINT "ticketID" FOREIGN KEY ("ticketID") REFERENCES public."Ticket"("ticketID");
+
+
+
+ALTER TABLE public."User" ALTER COLUMN "ID" ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Users_userID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
 
 
 -- Completed on 2022-05-29 15:07:20

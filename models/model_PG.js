@@ -4,11 +4,17 @@ import dotenv from "dotenv";
 dotenv.config();
 
  const pool = new pg.Pool({
-     user: process.env.PGUSER,
-     host: process.env.PGHOST,
-     database: process.env.PGDATABASE,
-     password: process.env.PGPASSWORD,
-     port: process.env.PGPORT
+     /*
+        user: process.env.PGUSER,
+//     host: process.env.PGHOST,
+//     database: process.env.PGDATABASE,
+//     password: process.env.PGPASSWORD,
+//     port: process.env.PORT
+     */
+     connectionString:process.env.URI,
+     ssl:{
+         rejectUnauthorized:false
+     }
  })
 
 async function connect() {
@@ -20,21 +26,21 @@ async function connect() {
         console.error(`Failed to connect ${e}`)
     }
 }
-/*
+
 async function existingEmail(Email,callback){
 
 }
 
 async function findUser(Email,Username,Password,callback){
-    
+    const sql =`SELECT `
+}
 
-*/
 
 
 async function insertUser (ID,Fname,Mname,Lname,Email,Cellphone,Username,Password,NewsLetter, callback) {
     // εισαγωγή νέου χρήστη, και επιστροφή στο callback της νέας εγγραφής
     
-    const sql = `INSERT INTO public."User"("Fname","Mname","Lname","Email","Cellphone","Username","Password","NewsLetter") VALUES ('${Fname}','${Mname}','${Lname}','${Email}','${Cellphone}','${Username}','${Password}',${true}) RETURNING "ID";`
+    const sql = `INSERT INTO "User"("Fname","Mname","Lname","Email","Cellphone","Username","Password","NewsLetter") VALUES ('${Fname}','${Mname}','${Lname}','${Email}','${Cellphone}','${Username}','${Password}',${true}) RETURNING "ID";`
     console.log('to insert...', sql)
     // how to return the autoincremented value of an inserted record: https://stackoverflow.com/questions/37243698/how-can-i-find-the-last-insert-id-with-node-js-and-postgresql
     try {
