@@ -325,12 +325,3 @@ ALTER TABLE public."User" ALTER COLUMN "ID" ADD GENERATED ALWAYS AS IDENTITY (
     NO MAXVALUE
     CACHE 1
 );
-
-
--- Completed on 2022-05-29 15:07:20
-
---
--- PostgreSQL database dump complete
---
-
-
