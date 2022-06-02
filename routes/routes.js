@@ -1,5 +1,5 @@
 import express from 'express';
-import * as model  from '../models/model_PG.js';
+import * as model from '../models/model_PG.js';
 
 
 const router = express.Router();

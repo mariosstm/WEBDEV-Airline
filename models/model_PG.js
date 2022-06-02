@@ -31,11 +31,19 @@ async function existingEmail(Email,callback){
 
 }
 
-async function findUser(Email,Username,Password,callback){
-    const sql =`SELECT `
+async function findUser(Username, callback){
+    const sql ={text: `SELECT * FROM "User" WHERE "Username"=$1`, values: [Username]} /*and "Password"='${Password}`*/;
+    console.log(sql)
+    try{
+        const client= await connect();
+        const res= await client.query(sql);
+        callback(null,res.rows)
+
+    }catch(error){
+        callback(error,null)
+    }
+
 }
-
-
 
 async function insertUser (ID,Fname,Mname,Lname,Email,Cellphone,Username,Password,NewsLetter, callback) {
     // εισαγωγή νέου χρήστη, και επιστροφή στο callback της νέας εγγραφής
@@ -57,4 +65,4 @@ async function insertUser (ID,Fname,Mname,Lname,Email,Cellphone,Username,Passwor
         }
     }
 
-export {insertUser};
+export {findUser, insertUser};
