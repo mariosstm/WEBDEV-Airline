@@ -23,7 +23,12 @@ let renderFlights = function (req, res) {
 }
 
 let renderHomePage = function (req, res) {
-  res.render('home', {layout:'main'});
+  console.log('user', req.user);
+  if (!req.user) { 
+    return res.render('home', {layout:'main', user: null});
+  }
+
+  return res.render('home', {layout:'main', user: req.user});
 }
 
 let renderDest = function (req, res) {
@@ -32,10 +37,6 @@ let renderDest = function (req, res) {
 
 let renderFaq = function (req, res) {
   res.render('faq', {layout:'main'});
-}
-
-let renderSignInPage = function (req, res) {
-  res.render('signIn', {layout:'main'});
 }
 
 let renderSignUpPage = function (req, res) {
@@ -57,45 +58,10 @@ let renderProfile = function (req, res) {
 router.route('/').get(renderHomePage);
 router.route('/destinations').get(renderDest);
 router.route('/faq').get(renderFaq);
-router.route('/sign-in').get(renderSignInPage);
 router.route('/sign-up').get(renderSignUpPage);
 router.route('/about-us').get(renderAboutUs);
 router.route('/user-info-form').get(renderUserInfoForm);
 router.route('/flights').get(renderFlights);
 router.route('/my-account').get(renderProfile);
-
-router.route("/sign-up").post((req,res)=>{
-  let ID=null;
-  let Fname=req.body.Fname;
-  let Mname=req.body.Mname;
-  let Lname=req.body.Lname;
-  let Email=req.body.Email;
-  let Cellphone=req.body.Cellphone;
-  let Username=req.body.Username;
-  let Password=req.body.Password;
-  let NewsLetter=req.body.NewsLetter;
-
-  model.insertUser(ID,Fname,Mname,Lname,Email,Cellphone,Username,Password,NewsLetter,(err,row)=>{
-    if(err){
-    }
-    else{
-      //ADD SESSION & COOKIES
-      /*
-      req.sesssion.ID=row[0].ID;
-      req.sesssion.Fname=row[0].Fname;
-      req.sesssion.Mname=row[0].Mname;
-      req.sesssion.Lname=row[0].Lname;
-      req.sesssion.Email=row[0].Email;
-      req.sesssion.Cellphone=row[0].Cellphone;
-      req.sesssion.Username=row[0].Username;
-      req.session.Password=row[0].Password;
-      req.sesssion.NewsLetter=row[0].NewsLetter;
-      //res.render('sign-up',{qs:req.query});
-      */
-      res.redirect("/sign-in");
-    }
-    
-  });
-})
 
 export default router;

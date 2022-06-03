@@ -1,13 +1,24 @@
 import express from 'express';
 import {engine} from 'express-handlebars';
-const app = express();
+import path from 'path';
+
+import cookieParser from 'cookie-parser';
+import passport from 'passport';
 import session from 'express-session';
 import routes from './routes/routes.js';
 import auth from './routes/auth.js';
+import { fileURLToPath } from 'node:url';
+
+
+const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.static('public'));
 app.engine('hbs', engine({ extname: 'hbs' }));
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended:true}));
 
@@ -20,9 +31,24 @@ app.use(session({
   sameSite: true,
   }
 }));
+app.use(passport.authenticate('session'));
 
 app.use('/', routes);
 app.use('/', auth);
+
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
+
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
 
 
 let port = process.env.PORT || '3000';
