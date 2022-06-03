@@ -55,6 +55,11 @@ let renderProfile = function (req, res) {
   res.render('profilePage', {layout:'main'});
 }
 
+let renderAdminMain = function (req, res) {
+  res.render('adminMain', {layout:'main'});
+}
+
+
 router.route('/').get(renderHomePage);
 router.route('/destinations').get(renderDest);
 router.route('/faq').get(renderFaq);
@@ -63,5 +68,6 @@ router.route('/about-us').get(renderAboutUs);
 router.route('/user-info-form').get(renderUserInfoForm);
 router.route('/flights').get(renderFlights);
 router.route('/my-account').get(renderProfile);
+router.route('/admin').get(renderAdminMain);
 
 export default router;
