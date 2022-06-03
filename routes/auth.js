@@ -27,7 +27,7 @@ const router = express.Router();
 // });
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
-    cb(null, { id: user.ID, username: user.Username });
+    cb(null, { id: user.ID, username: user.Username, fname: user.Fname, mname: user.Mname, lname: user.Lname, email: user.Email, cellphone: user.Cellphone });
   });
 });
 
@@ -46,6 +46,13 @@ router.post('/sign-in/password',
   function(req, res) {
     res.redirect('/');
   });
+
+router.get('/sign-out', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
 
 router.route("/sign-up").post((req,res)=>{
   let Salt = crypto.randomBytes(16);

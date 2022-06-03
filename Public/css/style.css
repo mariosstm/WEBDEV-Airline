@@ -46,16 +46,36 @@
     text-align: center;
     position: absolute;
     right: 2em;
-    top: 2em;
+    top: 1.5em;
     height: 3em;
     width: 9em;
     line-height: 1rem;
-    background-color: #00a8fc8e;
+    background-color: #cc951f;
     color: whitesmoke;
-    font-size: 0.8em;
+    font-size: 1em;
     font-weight: bold;
     border: 0;
-    border-radius:5px;
+    border-radius:1em;
+}
+
+.account-button, .alt-account-button{
+    position: absolute;
+    right: 2em;
+    top: 1.5em;
+    height: 3em;
+    width: 9em;
+    line-height: 2.6rem !important;
+    background-color: whitesmoke !important;
+    color: #0087ca !important; 
+    font-size: 1em !important;
+    font-weight: bold !important;
+    border: 0 !important;
+    border-radius:1em !important;
+}
+
+.alt-account-button{
+    background-color: #0087ca !important;
+    color: whitesmoke !important; 
 }
 
 .navbar{
@@ -193,7 +213,8 @@ nav .navbar-nav{
 
 .search-flight:hover{
     background-color: #b93a73;
-    transition:0.5s;
+    transition:0.2s;
+    cursor: pointer;
 }
 
 #swapBtnContainer{

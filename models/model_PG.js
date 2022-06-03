@@ -29,18 +29,6 @@ async function connect() {
     }
 }
 
-
-async function findUser(ID,Email,Username,Password,callback){
-    const sql =`SELECT "ID" FROM "User" WHERE "Email"=${Email} and "Username"=${Username} and "Password"='${Password}'`;
-    try{
-        const client= await connect();
-        const res= await client.query(sql);
-        callback(null,res.rows[0]);
-
-    }catch(error){
-        callback(error,null)
-    }
-
 async function findUser(Username, callback){
     const sql ={text: `SELECT * FROM "User" WHERE "Username"=$1`, values: [Username]} /*and "Password"='${Password}`*/;
     try{

@@ -19,11 +19,10 @@ let flights = [
 let renderFlights = function (req, res) {
   //req.query
   const filtFlights = flights.filter(flight => flight.depart === req.query.departure && flight.arrive === req.query.arrival && flight.date === req.query["depart-date"].slice(8))
-  return res.render('flights', {layout: 'no-nav-main', formData: req.query, departFlights: filtFlights});
+  return res.render('flights', {layout: 'no-nav-main', user: req.user, formData: req.query, departFlights: filtFlights});
 }
 
 let renderHomePage = function (req, res) {
-  console.log('user', req.user);
   if (!req.user) { 
     return res.render('home', {layout:'main', user: null});
   }
@@ -32,31 +31,45 @@ let renderHomePage = function (req, res) {
 }
 
 let renderDest = function (req, res) {
-  res.render('destinations', {layout:'main'});
+  res.render('destinations', {layout:'main', user: req.user});
 }
 
 let renderFaq = function (req, res) {
-  res.render('faq', {layout:'main'});
+  res.render('faq', {layout:'main', user: req.user});
 }
 
 let renderSignUpPage = function (req, res) {
-  res.render('signUp', {layout:'main'});
+  res.render('signUp', {layout:'main', user: req.user});
 }
 
 let renderAboutUs = function (req, res) {
-  res.render('aboutOurCo', {layout:'main'});
+  res.render('aboutOurCo', {layout:'main', user: req.user});
 }
 
 let renderUserInfoForm = function (req, res) {
-  res.render('customerInfoForm', {layout:'main'});
+  res.render('customerInfoForm', {layout:'main', user: req.user});
 }
 
 let renderProfile = function (req, res) {
-  res.render('profilePage', {layout:'main'});
+  res.render('profilePage', {layout:'main', user: req.user});
 }
 
 let renderAdminMain = function (req, res) {
-  res.render('adminMain', {layout:'main'});
+  res.render('adminMain', {layout:'main', user: req.user});
+}
+
+let renderAdminTicket = function (req, res) {
+  res.render('adminTicketManagement', {layout:'main', user: req.user});
+}
+
+let renderAdminHelp = function (req, res) {
+  res.render('adminHelpDesk', {layout:'main', user: req.user});
+}
+let renderAdminAnnounce = function (req, res) {
+  res.render('adminAnnouncements', {layout:'main', user: req.user});
+}
+let renderAdminReports = function (req, res) {
+  res.render('adminReports', {layout:'main', user: req.user});
 }
 
 
@@ -69,5 +82,9 @@ router.route('/user-info-form').get(renderUserInfoForm);
 router.route('/flights').get(renderFlights);
 router.route('/my-account').get(renderProfile);
 router.route('/admin').get(renderAdminMain);
+router.route('/admin/ticket').get(renderAdminTicket);
+router.route('/admin/helpdesk').get(renderAdminHelp);
+router.route('/admin/announcements').get(renderAdminAnnounce);
+router.route('/admin/reports').get(renderAdminReports);
 
 export default router;

@@ -1,6 +1,16 @@
 <header class="alt-header">
     <div class="top-header">
         <a class="alt-logo" href="/"> Terminal-A </a>
-        <a class="header-button" href="/sign-in" style="text-decoration:none!important; color:white;">Σύνδεση</a></button>
-    </div>  
+        {{#if user}}
+                <a class="btn btn-secondary dropdown-toggle alt-account-button" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">{{user.username}}</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="/profilePage">Ο λογαριασμός μου</a></li>
+                    <li><a class="dropdown-item" href="#">Οι κρατήσεις μου</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/sign-out">Έξοδος</a></li>
+                </ul>
+        {{else}}
+            <a class="header-button" href="/sign-in" style="text-decoration:none!important; color:white;">Σύνδεση</a>
+        {{/if}}
+    </div>
 </header>
