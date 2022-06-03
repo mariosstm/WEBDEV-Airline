@@ -9,7 +9,6 @@ import routes from './routes/routes.js';
 import auth from './routes/auth.js';
 import { fileURLToPath } from 'node:url';
 
-
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -49,6 +48,8 @@ app.use('/', auth);
 //   res.status(err.status || 500);
 //   res.render('error');
 // });
+
+
 
 
 let port = process.env.PORT || '3000';
