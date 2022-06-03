@@ -2,6 +2,7 @@ import express from 'express';
 import {engine} from 'express-handlebars';
 import * as model  from './models/model_PG.js';
 import bodyParser from "body-parser";
+import session from "express-session";
 const app = express();
 const router = express.Router();
 
@@ -67,6 +68,9 @@ let renderProfilePage = function (req, res) {
   res.render('profilePage', {layout:'main'});
 }
 
+let renderAdminMain=function(req,res){
+  res.render('adminMain',{layout:'main'})
+}
 app.use(router);
 
 
@@ -79,10 +83,10 @@ router.route('/about-us').get(renderAboutUs);
 router.route('/user-info-form').get(renderUserInfoForm);
 router.route('/profile').get(renderProfilePage);
 router.route('/flights').get(renderFlights);
-
+router.route('/adminMain').get(renderAdminMain);
 //INSERT USERS
 
-app.post("/profile-page",urlencodedParser,(req,res)=>{
+app.post("/sign-up",urlencodedParser,(req,res)=>{
   let ID=null;
   let Fname=req.body.Fname;
   let Mname=req.body.Mname;
@@ -97,6 +101,7 @@ app.post("/profile-page",urlencodedParser,(req,res)=>{
     if(err){
       console.log(err.message);
       
+
     }
     else{
       //ADD SESSION & COOKIES
@@ -112,12 +117,14 @@ app.post("/profile-page",urlencodedParser,(req,res)=>{
       req.sesssion.NewsLetter=row[0].NewsLetter;
       //res.render('sign-up',{qs:req.query});
       */
-      //res.redirect("/");
+      res.redirect("/sign-in");
     }
 
     
   });
 })
+
+
 
 let port = process.env.PORT || '3000';
 const server = app.listen(port, () => { console.log("Περιμένω αιτήματα στο port " + port) });

@@ -1,5 +1,7 @@
 import pg from "pg";
 import dotenv from "dotenv";
+//import bcrypt from "bcrypt"
+
 
 dotenv.config();
 
@@ -27,12 +29,18 @@ async function connect() {
     }
 }
 
-async function existingEmail(Email,callback){
 
-}
+async function findUser(ID,Email,Username,Password,callback){
+    const sql =`SELECT "ID" FROM "User" WHERE "Email"=${Email} and "Username"=${Username} and "Password"='${Password}'`;
+    try{
+        const client= await connect();
+        const res= await client.query(sql);
+        callback(null,res.rows[0]);
 
-async function findUser(Email,Username,Password,callback){
-    const sql =`SELECT `
+    }catch(error){
+        callback(error,null)
+    }
+
 }
 
 
@@ -57,4 +65,9 @@ async function insertUser (ID,Fname,Mname,Lname,Email,Cellphone,Username,Passwor
         }
     }
 
-export {insertUser};
+async function insertTicket(callback){
+
+}
+
+
+export {insertUser,findUser};
