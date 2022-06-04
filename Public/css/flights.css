@@ -18,24 +18,33 @@
   margin-left: 10em;
 }
 
-.flightsContainer{
-  padding: 2em 0;
-}
-
 .flightInfoFlex{
-  width: 800px;
+  width: 48em;
   border-radius: 0.5em;
   display:flex;
   background-color: whitesmoke;
   border: 2px solid black;
-  margin: 2em 18em;
-  padding: 0.5em 2em 0.5em 0;
+  margin: 4em 18em;
+  padding: 0.5em 0 0.5em 0;
+}
+
+.flightInfoFlex:hover{
+  box-shadow: 0 2px 8px 2px rgb(73, 73, 73);
+}
+
+.flightClicked{
+  border-color: #00A698; 
+  box-shadow: 0.3em 0.3em 0.3em 0.3em #00A698;
+}
+
+.flightClicked:hover{
+  border-color: #64928e; 
+  box-shadow: 0.3em 0.3em 0.3em 0.3em #64928e;
 }
 
 .flightDetailsFlex{
   display:flex;
   font-size: 2rem;
-  margin-right: 2em;
 }
 
 .flightSelection{
@@ -52,6 +61,8 @@
 .flightArriveContainer{
   display:flex;
   flex-direction: column;
+  padding-right: 2em;
+  border-right: 1px dashed gray;
 }
 
 .flightLocations{
@@ -59,9 +70,51 @@
 }
 
 .flightPriceInfo{
-  padding: 22px 0 0 150px;
-  width:230px;
+  padding: 0.8em 0 0 1em;
+  width:3em;
   font-size: 2rem;
-  border-left: 1px dashed gray;
   font-weight: bold;
+}
+
+.hiddenCheckbox{
+  display: none;
+}
+
+.flightSelectBtn{
+  display: inline-block; 
+  height: 3em;
+  width: 8em;
+  line-height: 1rem;
+  background-color: #0087ca;
+  color: whitesmoke;
+  font-weight: bold;
+  border: 0;
+  border-radius: 16px;
+  text-align: center;
+  line-height: 3em;
+  margin: 1.6em 0 0 1em;
+}
+
+.flightSelectBtn:hover{
+  cursor: pointer;
+}
+
+.submitFlightBtn{
+  display: block;
+  height: 3em;
+  width: 8em;
+  line-height: 1rem;
+  background-color: #E2076A;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 1.5em;
+  border: 0;
+  border-radius: 16px;
+  text-align: center;
+  line-height: 2.8em;
+  margin: 0 2em 2em 70vw ;
+}
+
+.submitFlightBtn:hover{
+  cursor: pointer;
 }

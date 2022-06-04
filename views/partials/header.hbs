@@ -4,6 +4,9 @@
         {{#if user}}
                 <a class="btn btn-secondary dropdown-toggle account-button" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">{{user.username}}</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    {{#if user.admin}}
+                    <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
+                    {{/if}}
                     <li><a class="dropdown-item" href="/my-account">Ο λογαριασμός μου</a></li>
                     <li><a class="dropdown-item" href="#">Οι κρατήσεις μου</a></li>
                     <li><hr class="dropdown-divider"></li>

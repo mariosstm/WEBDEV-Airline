@@ -15,24 +15,26 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
     if (!crypto.timingSafeEqual(ourPass, hashedPassword)) {
       return cb(null, false, { message: 'Incorrect username or password.' });
     }
-    return cb(null, row[0]);
+    return cb(null, row);
   });
 })
 }));
 
 const router = express.Router();
 
-// router.get('/sign-in', function(req, res, next) {
-//   res.render('signIn');
-// });
-passport.serializeUser(function(user, cb) {
-  process.nextTick(function() {
-    cb(null, { id: user.ID, username: user.Username, fname: user.Fname, mname: user.Mname, lname: user.Lname, email: user.Email, cellphone: user.Cellphone });
+passport.serializeUser(function(row, cb) {
+  const user = row[0];
+  let admin = false;
+  if(row[1]){
+    admin = true;
+  }
+  return process.nextTick(function() {
+    cb(null, { id: user.ID, admin: admin, username: user.Username, fname: user.Fname, mname: user.Mname, lname: user.Lname, email: user.Email, cellphone: user.Cellphone });
   });
 });
 
 passport.deserializeUser(function(user, cb) {
-  process.nextTick(function() {
+  return process.nextTick(function() {
     return cb(null, user);
   });
 });

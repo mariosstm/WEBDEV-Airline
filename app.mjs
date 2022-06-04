@@ -63,7 +63,7 @@ app.use('/', auth);
 
 
 
-let port = process.env.PORT || '3000';
+let port = '3000';
 const server = app.listen(port, () => { console.log("Περιμένω αιτήματα στο port " + port) });
 
 //http://localhost:3000/?departure=Athens&arrival=Kos&depart-date=2022-05-27&return-date=2022-05-31

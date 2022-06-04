@@ -18,8 +18,16 @@ let flights = [
 
 let renderFlights = function (req, res) {
   //req.query
-  const filtFlights = flights.filter(flight => flight.depart === req.query.departure && flight.arrive === req.query.arrival && flight.date === req.query["depart-date"].slice(8))
-  return res.render('flights', {layout: 'no-nav-main', user: req.user, formData: req.query, departFlights: filtFlights});
+  console.log('f,')
+  console.log(req.query);
+  const filtFlights = flights.filter(flight => flight.depart === req.query.departure && flight.arrive === req.query.arrival && flight.date === req.query["depart-date"].slice(8));
+  const retFlights = flights.filter(flight => flight.depart === req.query.arrival && flight.arrive === req.query.departure && flight.date === req.query["return-date"].slice(8));
+  return res.render('flights', {layout: 'no-nav-main', user: req.user, formData: req.query, departFlights: filtFlights, returnFlights: retFlights});
+}
+
+let renderFlightPassengers = function (req, res) {
+  console.log(req.query);
+  return res.render('passengerInfo', {layout:'main', user: req.user});
 }
 
 let renderHomePage = function (req, res) {
@@ -80,11 +88,14 @@ router.route('/sign-up').get(renderSignUpPage);
 router.route('/about-us').get(renderAboutUs);
 router.route('/user-info-form').get(renderUserInfoForm);
 router.route('/flights').get(renderFlights);
+router.route('/flights/passengers').get(renderFlightPassengers);
 router.route('/my-account').get(renderProfile);
 router.route('/admin').get(renderAdminMain);
 router.route('/admin/ticket').get(renderAdminTicket);
 router.route('/admin/helpdesk').get(renderAdminHelp);
 router.route('/admin/announcements').get(renderAdminAnnounce);
 router.route('/admin/reports').get(renderAdminReports);
+
+
 
 export default router;

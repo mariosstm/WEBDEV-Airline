@@ -7,16 +7,16 @@ dotenv.config();
 
  const pool = new pg.Pool({
      
-        // user: process.env.PGUSER,
-        // host: process.env.PGHOST,
-        // database: process.env.PGDATABASE,
-        // password: process.env.PGPASSWORD,
-        // port: process.env.PGPORT,
+        user: process.env.PGUSER,
+        host: process.env.PGHOST,
+        database: process.env.PGDATABASE,
+        password: process.env.PGPASSWORD,
+        port: process.env.PGPORT,
      
-     connectionString:process.env.URI,
-     ssl:{
-         rejectUnauthorized:false
-     }
+    //  connectionString:process.env.URI,
+    //  ssl:{
+    //      rejectUnauthorized:false
+    //  }
  })
 
 async function connect() {
@@ -29,11 +29,28 @@ async function connect() {
     }
 }
 
+// async function checkAdmin(ID, callback){
+//     const sql={text: `SELECT * FROM "Admin" WHERE "adminID"=$1`, values:[ID]};
+//     try{
+//         const client=await connect();
+//         const res=await client.query(sql);
+
+//         callback(null, res.rows);
+
+//     }catch(error){
+//         callback(error,null);
+
+//     }
+// }
+
 async function findUser(Username, callback){
     const sql ={text: `SELECT * FROM "User" WHERE "Username"=$1`, values: [Username]} /*and "Password"='${Password}`*/;
     try{
         const client= await connect();
         const res= await client.query(sql);
+        const sqlAdmin={text: `SELECT * FROM "Admin" WHERE "adminID"=$1`, values:[res.rows[0].ID]};
+        const resAdmin = await client.query(sqlAdmin);
+        res.rows.push(resAdmin.rows[0]);
         callback(null,res.rows);
 
     }catch(error){
