@@ -1,7 +1,6 @@
 import express from 'express';
 import {engine} from 'express-handlebars';
 import path from 'path';
-
 //import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import session from 'express-session';
