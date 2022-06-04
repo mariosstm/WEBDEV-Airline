@@ -11,7 +11,7 @@ dotenv.config();
         // host: process.env.PGHOST,
         // database: process.env.PGDATABASE,
         // password: process.env.PGPASSWORD,
-        // port: process.env.PORT
+        // port: process.env.PGPORT,
      
      connectionString:process.env.URI,
      ssl:{
