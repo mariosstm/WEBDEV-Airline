@@ -1,0 +1,12 @@
+.flightInfoSticky{
+  width: 20vw;
+  height: 22vw;
+  background-color: #0F5673;
+  color: white;
+  position: sticky;
+  float: left;
+  top: 10em;
+  border-radius: 0 1em 1em 0;
+  font-size: 1.2em;
+  padding: 0.5em;
+}

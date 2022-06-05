@@ -18,16 +18,24 @@ let flights = [
 
 let renderFlights = function (req, res) {
   //req.query
-  console.log('f,')
-  console.log(req.query);
-  const filtFlights = flights.filter(flight => flight.depart === req.query.departure && flight.arrive === req.query.arrival && flight.date === req.query["depart-date"].slice(8));
-  const retFlights = flights.filter(flight => flight.depart === req.query.arrival && flight.arrive === req.query.departure && flight.date === req.query["return-date"].slice(8));
-  return res.render('flights', {layout: 'no-nav-main', user: req.user, formData: req.query, departFlights: filtFlights, returnFlights: retFlights});
+  // const filtFlights = flights.filter(flight => flight.depart === req.query.departure && flight.arrive === req.query.arrival && flight.date === req.query["depart-date"].slice(8));
+  // const retFlights = flights.filter(flight => flight.depart === req.query.arrival && flight.arrive === req.query.departure && flight.date === req.query["return-date"].slice(8));
+  model.findJourneyViaCities(req.query.departure, req.query["depart-date"], req.query.arrival, req.query["arrival-date"], function(err, flights){
+    // console.log(flights[0])
+    // console.log(flights[1])
+    return res.render('flights',{layout: 'no-nav-main', user: req.user, formData:req.query, departFlights: flights[0], arriveFlights: flights[1]});
+  });
+  //return res.render('flights', {layout: 'no-nav-main', user: req.user, formData: req.query, departFlights: filtFlights, returnFlights: retFlights});
 }
 
 let renderFlightPassengers = function (req, res) {
-  console.log(req.query);
-  return res.render('passengerInfo', {layout:'main', user: req.user});
+  const passengerCount = req.query.passengers.slice(0,1);
+  const passengers = [];
+  for(let i=0;i<passengerCount;i++){
+    passengers.push(i);
+  }
+  console.log(passengers);
+  return res.render('passengerInfo', {layout:'main', user: req.user, formData: req.query, passengerCount: passengers});
 }
 
 let renderHomePage = function (req, res) {
@@ -80,6 +88,9 @@ let renderAdminReports = function (req, res) {
   res.render('adminReports', {layout:'main', user: req.user});
 }
 
+let renderContactUS = function(req, res){
+  res.render('contactUS',{layout:'main',user:null});
+}
 
 router.route('/').get(renderHomePage);
 router.route('/destinations').get(renderDest);
@@ -95,7 +106,30 @@ router.route('/admin/ticket').get(renderAdminTicket);
 router.route('/admin/helpdesk').get(renderAdminHelp);
 router.route('/admin/announcements').get(renderAdminAnnounce);
 router.route('/admin/reports').get(renderAdminReports);
+router.route('/contact-us').get(renderContactUS);
 
 
+/*
+
+router.route('/').post((req,res)=>{
+  const startingPoint=req.body.departure;
+  const destination=req.query.arrival;
+  model.findJourneyViaCities(startingPoint,destination,(err,row)=>{
+      console.log(startingPoint,'EWFHEHFWEOF')
+
+    if(err) return console.error(err.message);
+    else res.redirect('/flights');
+  })
+  // const depDate=req.session.departDate;
+  // const returnDate=req.session.returnDate;
+  
+})
+
+router.route("/flights/passengers").get((req,res)=>{
+  const startingPoint=req.body.departure;
+  const destination=req.query.arrival;
+  console.log(startingPoint,'EWFHEHFWEOF') 
+})
+*/
 
 export default router;

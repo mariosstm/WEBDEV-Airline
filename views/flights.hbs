@@ -10,27 +10,34 @@
   </div>
 </div>
 <form action="/flights/passengers" method="GET">
+  {{#formData}}
+    <input type="hidden" name="departure" value="{{departure}}" />
+    <input type="hidden" name="arrival" value="{{arrival}}" />
+    <input type="hidden" name="depart-date" value="{{depart-date}}" />
+    <input type="hidden" name="return-date" value="{{return-date}}" />
+    <input type="hidden" name="passengers" value="{{passengers}}" />
+  {{/formData}}
   <div class="depFlightsContainer">
     {{#each departFlights}}
-      <div class="flightInfoFlex" id = "flight{{id}}">
+      <div class="flightInfoFlex" id = "flight{{flightID}}">
         <div class="flightDetailsFlex">
-          <div class="flightSelection">{{airline}}</div>
+          <div class="flightSelection">{{Company}}</div>
           <div class="flightDepartContainer">
-            <span class="flightTime">{{dptTime}}</span>
-            <span class="flightLocations">{{dptAirport}}</span>
+            <span class="flightTime">{{departureTime}}</span>
+            <span class="flightLocations">{{begin}}</span>
           </div>
           <div class="inBetweenContainer">
             &nbsp;---&nbsp;
           </div>
           <div class="flightArriveContainer">
-            <span class="flightTime">{{arrTime}}</span>
-            <span class="flightLocations">{{arrAirport}}</span></div>
+            <span class="flightTime">{{arrivalTime}}</span>
+            <span class="flightLocations">{{end}}</span></div>
         </div>
         <div class="flightPriceInfo">
-          {{price}}
+          {{Cost}}
         </div>
-        <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{id}}" name="dptFlightID" value="btn-flight{{id}}">
-        <label for="btn-flight{{id}}" class="flightSelectBtn">Επιλογή</label>
+        <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{flightID}}" name="dptFlightID" value="btn-flight{{id}}">
+        <label for="btn-flight{{flightID}}" class="flightSelectBtn">Επιλογή</label>
         {{!-- <btn class="flightSelectBtn" type="button" id = "btn-flight{{id}}">
           Επιλογή
         </btn> --}}
@@ -53,28 +60,37 @@
       {{#each returnFlights}}
         <div class="flightInfoFlex" id = "flight{{id}}">
           <div class="flightDetailsFlex">
-            <div class="flightSelection">{{airline}}</div>
+            <div class="flightSelection">{{flightID}}</div>
             <div class="flightDepartContainer">
-              <span class="flightTime">{{dptTime}}</span>
-              <span class="flightLocations">{{dptAirport}}</span>
+              <span class="flightTime">{{departureTime}}</span>
+              <span class="flightLocations">{{begin}}</span>
             </div>
             <div class="inBetweenContainer">
               &nbsp;---&nbsp;
             </div>
             <div class="flightArriveContainer">
-              <span class="flightTime">{{arrTime}}</span>
-              <span class="flightLocations">{{arrAirport}}</span></div>
+              <span class="flightTime">{{arrivalTime}}</span>
+              <span class="flightLocations">{{end}}</span></div>
           </div>
           <div class="flightPriceInfo">
-            {{price}}
+            {{Cost}}
           </div>
           <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{id}}" name="dptFlightID" value="btn-flight{{id}}">
-          <label for="btn-flight{{id}}" class="flightSelectBtn">Επιλογή</label>
+          <label for="btn-flight{{flightID}}" class="flightSelectBtn">Επιλογή</label>
         </div>
       {{/each}}
     {{/if}}
   </div>
-    <btn class="submitFlightBtn" type="submit">Συνέχεια</btn>
+    <button class="submitFlightBtn" type="submit">Συνέχεια</button>
   </form>
 
 <script src="/scripts/flightSelect.js"></script>
+<!--
+  {
+    flightID: 'GO493',
+    Company: 'SAS Scandinavian',
+    Cost: 73,
+    departureTime: '1:10 AM',
+    arrivalTime: '5:21 AM'
+  }
+  -->
