@@ -36,7 +36,7 @@
         <div class="flightPriceInfo">
           {{Cost}}
         </div>
-        <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{flightID}}" name="dptFlightID" value="btn-flight{{id}}">
+        <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{flightID}}" name="dptFlightID" value="{{flightID}}">
         <label for="btn-flight{{flightID}}" class="flightSelectBtn">Επιλογή</label>
         {{!-- <btn class="flightSelectBtn" type="button" id = "btn-flight{{id}}">
           Επιλογή
@@ -58,7 +58,7 @@
       </div>
       <div class="retFlightsContainer">
       {{#each returnFlights}}
-        <div class="flightInfoFlex" id = "flight{{id}}">
+        <div class="flightInfoFlex" id = "flight{{flightID}}">
           <div class="flightDetailsFlex">
             <div class="flightSelection">{{flightID}}</div>
             <div class="flightDepartContainer">
@@ -75,8 +75,8 @@
           <div class="flightPriceInfo">
             {{Cost}}
           </div>
-          <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{id}}" name="dptFlightID" value="btn-flight{{id}}">
-          <label for="btn-flight{{flightID}}" class="flightSelectBtn">Επιλογή</label>
+          <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{flightID}}" name="dptFlightID" value="{{flightID}}">
+          <label for="btn-flight{{id}}" class="flightSelectBtn">Επιλογή</label>
         </div>
       {{/each}}
     {{/if}}

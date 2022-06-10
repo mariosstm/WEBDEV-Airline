@@ -118,3 +118,14 @@
 .submitFlightBtn:hover{
   cursor: pointer;
 }
+
+.bookingInfo{
+  width: 20em;
+  height: 10em;
+  background-color: #0F5673;
+  color: white;
+  font-size: 1.2em;
+  padding: 1em 1.6em;
+  margin: 3em 1em;
+  border-radius: 3em;
+}

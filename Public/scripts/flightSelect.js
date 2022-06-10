@@ -24,14 +24,16 @@ for(let i=0; i<nodesDpt.length; i++) {
   }
 }
 
-const nodesRet = document.querySelector('.retFlightsContainer').childNodes;
-const idNumRet = [];
-for(let i=0; i<nodesRet.length; i++) {
-  if (nodesRet[i].nodeName.toLowerCase() == 'div') {
-    idNumRet.push(nodesRet[i].id.slice(6));
-    let el = document.querySelector('#btn-flight'+idNumRet.slice(-1));
-    el.addEventListener("click", function(event) {
-      toggleClick(event, idNumRet);
-  });
+if(document.querySelector('.retFlightsContainer')){
+  const nodesRet = document.querySelector('.retFlightsContainer').childNodes;
+  const idNumRet = [];
+  for(let i=0; i<nodesRet.length; i++) {
+    if (nodesRet[i].nodeName.toLowerCase() == 'div') {
+      idNumRet.push(nodesRet[i].id.slice(6));
+      let el = document.querySelector('#btn-flight'+idNumRet.slice(-1));
+      el.addEventListener("click", function(event) {
+        toggleClick(event, idNumRet);
+    });
+    }
   }
 }

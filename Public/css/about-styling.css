@@ -80,3 +80,13 @@ h1 p{
     margin-top:2em;
     margin-bottom:2em;
 }
+
+.column{
+    height: 30vw;
+    width: 10vw;
+    border-radius: 5em;
+}
+
+.column img{
+    object-fit: scale-down;
+}

@@ -28,11 +28,14 @@ app.use(session({
   cookie: {
     maxAge: 1000 * 60 * 60, // 1 ώρα
   sameSite: true,
+ 
   }
 
 
 }));
 app.use(passport.authenticate('session'));
+
+
 
 app.use('/', routes);
 app.use('/', auth);

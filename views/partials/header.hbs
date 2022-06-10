@@ -2,13 +2,13 @@
     <div class="top-header">
         <a class="logo" href="/"> Terminal-A </a>
         {{#if user}}
-                <a class="btn btn-secondary dropdown-toggle account-button" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">{{user.username}}</a>
+                <a class="btn btn-secondary dropdown-toggle account-button" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">{{user.fname}}</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     {{#if user.admin}}
                     <li><a class="dropdown-item" href="/admin">Admin Panel</a></li>
                     {{/if}}
                     <li><a class="dropdown-item" href="/my-account">Ο λογαριασμός μου</a></li>
-                    <li><a class="dropdown-item" href="#">Οι κρατήσεις μου</a></li>
+                    <li><a class="dropdown-item" href="/my-bookings">Οι κρατήσεις μου</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/sign-out">Έξοδος</a></li>
                 </ul>

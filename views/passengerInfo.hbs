@@ -14,27 +14,30 @@
         <div>
             30-06-2022
         </div>
-        <div>
-            3 Pass
-        </div>
     {{/formData}}
     </div>
-    <form id="Passenger-Form" action="/confirmation-page" method="POST">
+    <form id="Passenger-Form" action="/flights/passengers/confirmation" method="POST">
+        {{#formData}}
+            <input type="hidden" name="dptFlightID" value="{{dptFlightID}}" />
+            <input type="hidden" name="arrFlightID" value="{{arrFlightID}}" />
+        {{/formData}}
         {{#each passengerCount}}
         <div class="container">
-            <div class="row">
+            <div class="row" style="margin-left:10%;">
                 <div class="col-12 col-sm-4">
                     <div class="card mx-4 mx-md-5 shadow-5-strong" style="
                             width:50vw;
                             height:30vw;
                             margin-top: 50px;
                             margin-bottom:3vw;
+                            
+                            
                             background: hsla(0, 0%, 100%, 0.8);
                             backdrop-filter: blur(90px);
                             border-radius: 16px;
                             ">
                         <div class="card-body py-5 px-md-1">
-                            <div class="row d-flex justify-content-center">
+                            <div class="row d-flex justify-content-center" >
                                 <div class="col-lg-8">
                                     <h2 class="fw-bold mb-5">Passenger Info</h2>
 
@@ -97,9 +100,9 @@
                                         <div>
                                             <select name="ID-Type" id="ID-Type{{@key}}" style="border-radius:5px;margin-top:0.3vw;">
                                                 <option value="none" selected>ID Type</option>
-                                                <option value="male">Passport</option>
-                                                <option value="female">State-Issued ID Card</option>
-                                                <option value="other">Military-Issued ID Card</option>
+                                                <option value="Passport">Passport</option>
+                                                <option value="State-Issued ID Card">State-Issued ID Card</option>
+                                                <option value="Military-Issued ID Card">Military-Issued ID Card</option>
                                             </select>
                                         </div>
                                         </div>
@@ -116,8 +119,8 @@
     </div>
     {{/each}}
     <!-- Submit button -->
-    <div class="d-flex justify-content-center button-wrapper" style="">
-        <button type="submit" class="btn btn-primary btn-block mb-3" style="margin-left:-25%;width:50%;height:3vw;text-align:center">
+    <div class="d-flex justify-content-center button-wrapper" style="margin-left:15%;">
+        <button type="submit" class="btn btn-primary btn-block mb-3" style="margin-left:-25%;width:45%;height:3vw;text-align:center">
             Ολοκλήρωση Κράτησης
         </button>
     </div>
